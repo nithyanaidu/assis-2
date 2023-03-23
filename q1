@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int num1, num2, num3, max;
+    
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+    
+    // Using the conditional operator to find the maximum of three numbers
+    max = (num1 > num2) ? ((num1 > num3) ? num1 : num3) : ((num2 > num3) ? num2 : num3);
+    
+    printf("Maximum among three numbers is %d\n", max);
+    
+    return 0;
+}
+output
+Enter three numbers: 54,67,90
+Maximum among three numbers is 4096
