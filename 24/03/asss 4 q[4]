@@ -1,0 +1,41 @@
+def printEvenOdd(lower, upper, isEven=True):
+    # Base case
+    if lower > upper:
+        return
+
+    # Recursive case
+    if isEven:
+        if lower % 2 == 0:
+            print(lower, end=", ")
+        printEvenOdd(lower+1, upper, isEven)
+    else:
+        if lower % 2 != 0:
+            print(lower, end=", ")
+        printEvenOdd(lower+1, upper, isEven)
+
+# Driver code
+lower = int(input("Enter the lower limit: "))
+upper = int(input("Enter the upper limit: "))
+isEven = True if input("Do you want to print even numbers? (y/n): ").lower() == 'y' else False
+
+if isEven:
+    print("Even Numbers from", lower, "to", upper, "are:", end=" ")
+else:
+    print("Odd Numbers from", lower, "to", upper, "are:", end=" ")
+
+printEvenOdd(lower, upper, isEven)
+Input:
+lower limit: 1
+upper limit: 10
+Do you want to print even numbers? (y/n): n
+
+Output:
+Odd Numbers from 1 to 10 are: 1, 3, 5, 7, 9
+
+Input:
+lower limit: 2
+upper limit: 10
+Do you want to print even numbers? (y/n): y
+
+Output:
+Even Numbers from 2 to 10 are: 2, 4, 6, 8, 10
