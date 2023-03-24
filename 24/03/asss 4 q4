@@ -1,0 +1,21 @@
+def print_even_odd(lower, upper, is_even):
+    if lower > upper:
+        return
+    if is_even and lower % 2 == 0:
+        print(lower, end=', ')
+    elif not is_even and lower % 2 != 0:
+        print(lower, end=', ')
+    print_even_odd(lower+1, upper, is_even)
+
+lower = int(input("Enter lower limit: "))
+upper = int(input("Enter upper limit: "))
+
+print("Even/odd Numbers from", lower, "to", upper, "are: ", end="")
+print_even_odd(lower, upper, True) if lower % 2 == 0 else print_even_odd(lower, upper, False)
+output
+lower limit: 2
+upper limit: 10
+
+The output should be:
+
+Even/odd Numbers from 2 to 10 are: 2, 4, 6, 8, 10
