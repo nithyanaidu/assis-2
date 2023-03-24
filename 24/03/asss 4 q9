@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE *file1, *file2, *merged_file;
+    char file1_name[50], file2_name[50], merged_file_name[50], c;
+
+    printf("Enter the name of first file to merge: ");
+    scanf("%s", file1_name);
+
+    printf("Enter the name of second file to merge: ");
+    scanf("%s", file2_name);
+
+    printf("Enter the name of merged file: ");
+    scanf("%s", merged_file_name);
+
+    // Open first file for reading
+    file1 = fopen(file1_name, "r");
+    if (file1 == NULL) {
+        printf("Unable to open file %s\n", file1_name);
+        exit(EXIT_FAILURE);
+    }
+
+    // Open second file for reading
+    file2 = fopen(file2_name, "r");
+    if (file2 == NULL) {
+        printf("Unable to open file %s\n", file2_name);
+        exit(EXIT_FAILURE);
+    }
+
+    // Open merged file for writing
+    merged_file = fopen(merged_file_name, "w");
+    if (merged_file == NULL) {
+        printf("Unable to create file %s\n", merged_file_name);
+        exit(EXIT_FAILURE);
+    }
+
+    // Merge files by reading from one and writing to the other
+    while ((c = fgetc(file1)) != EOF) {
+        fputc(c, merged_file);
+    }
+
+    while ((c = fgetc(file2)) != EOF) {
+        fputc(c, merged_file);
+    }
+
+    printf("Files %s and %s merged successfully into %s\n", file1_name, file2_name, merged_file_name);
+
+    // Close files
+    fclose(file1);
+    fclose(file2);
+    fclose(merged_file);
+
+    return 0;
+}
+output
+Enter the name of first file to merge: m 
+Enter the name of second file to merge: o
+Enter the name of merged file: g
+Unable to open file m
