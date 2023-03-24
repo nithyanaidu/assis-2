@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+void matrix_multiply(int *m1, int *m2, int *result) {
+    for(int i=0; i<3; i++) {
+        for(int j=0; j<3; j++) {
+            *(result + i*3 + j) = 0;
+            for(int k=0; k<3; k++) {
+                *(result + i*3 + j) += *(m1 + i*3 + k) * *(m2 + k*3 + j);
+            }
+        }
+    }
+}
+
+int main() {
+    int m1[3][3], m2[3][3], result[3][3];
+    printf("Enter elements in first matrix of size 3x3\n");
+    for(int i=0; i<3; i++) {
+        for(int j=0; j<3; j++) {
+            scanf("%d", &m1[i][j]);
+        }
+    }
+    printf("Enter elements in second matrix of size 3x3\n");
+    for(int i=0; i<3; i++) {
+        for(int j=0; j<3; j++) {
+            scanf("%d", &m2[i][j]);
+        }
+    }
+    matrix_multiply(&m1[0][0], &m2[0][0], &result[0][0]);
+    printf("Product of both matrices is :\n");
+    for(int i=0; i<3; i++) {
+        for(int j=0; j<3; j++) {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+output
+Enter elements in first matrix of size 3x3
+10 20 30
+40 50 60
+70 80 90
+
+10 20 30
+
+40 50 60
+
+70 80 90
+
+
+Enter elements in second matrix of size 3x3
+1 2 3
+4 5 6
+7 8 9
+
+1 2 3
+4 5 6
+7 8 9
+
+Product of both matrices is :
+300 360 420 
+660 810 960 
+1020 1260 1500 
