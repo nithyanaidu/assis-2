@@ -1,0 +1,16 @@
+# Take input string and character to search
+input_string = input("Enter any string: ")
+search_char = input("Enter any character to search: ")
+
+# Initialize a variable to count occurrences
+count = 0
+
+# Iterate through each character in the string and check if it matches the search character
+for char in input_string:
+    if char == search_char:
+        count += 1
+
+# Print the total count of occurrences
+print("Total occurrence of '{}' = {}".format(search_char, count))
+output
+Total occurrence of 'g' = 2
