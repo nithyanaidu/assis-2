@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    int temp[2][7];  // 2 cities, 7 days
+    int city, day;
+
+    // Input temperatures
+    for (city = 0; city < 2; city++) {
+        printf("Enter temperatures for city %d:\n", city+1);
+        for (day = 0; day < 7; day++) {
+            printf("Day %d: ", day+1);
+            scanf("%d", &temp[city][day]);
+        }
+    }
+
+    // Display temperatures
+    printf("\nTemperature Data:\n");
+    for (city = 0; city < 2; city++) {
+        printf("City %d:\n", city+1);
+        for (day = 0; day < 7; day++) {
+            printf("Day %d: %d\n", day+1, temp[city][day]);
+        }
+    }
+
+    return 0;
+}
+output
+Enter temperatures for city 1:
+Day 1: 32
+Day 2: 23
+Day 3: 34
+Day 4: 32
+Day 5: 26
+Day 6: 29
+Day 7: 30
+Enter temperatures for city 2:
+Day 1: 32
+Day 2: 31
+Day 3: 30
+Day 4: 28
+Day 5: 34
+Day 6: 29
+Day 7: 32
+Temperature Data:
+City 1:
+Day 1: 32
+Day 2: 23
+Day 3: 34
+Day 4: 32
+Day 5: 26
+Day 6: 29
+Day 7: 30
+City 2:
+Day 1: 32
+Day 2: 31
+Day 3: 30
+Day 4: 28
+Day 5: 34
+Day 6: 29
+Day 7: 32
